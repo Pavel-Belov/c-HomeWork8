@@ -15,6 +15,23 @@ void FillArray(int[,,] array)
             }
         }
     }
+    // Перемешиваем матрицу
+    int sizeI = array.GetLength(0);
+    int sizeJ = array.GetLength(1);
+    int sizeK = array.GetLength(2);
+    Random random = new Random();
+    for (int i = 0; i < sizeI * sizeJ * sizeK; i++)
+    {
+        int element1i = random.Next(sizeI);
+        int element1j = random.Next(sizeJ);
+        int element1k = random.Next(sizeK);
+        int element2i = random.Next(sizeI);
+        int element2j = random.Next(sizeJ);
+        int element2k = random.Next(sizeK);
+        int temp = array[element1i, element1j, element1k];
+        array[element1i, element1j, element1k] = array[element2i, element2j, element2k];
+        array[element2i, element2j, element2k] = temp;
+    }
 }
 
 void PrintArray(int[,,] array)
